@@ -36,5 +36,35 @@ module.exports = {
         const day = `0${data.getUTCDate()}`.slice(-2)
 
         return `${year}-${month}-${day}`
+    },
+
+    grade: function(grade) {
+        let correctValue = ''
+
+        switch(grade) {
+            case 'f6':
+                correctValue = 'Ensino Fundamental 6° ano'
+                break;
+            case 'f7':
+                correctValue = 'Ensino Fundamental 7° ano'
+                break;
+            case 'f8':
+                correctValue = 'Ensino Fundamental 8° ano'
+                break;
+            case 'f9':
+                correctValue = 'Ensino Fundamental 9° ano'
+                break;
+            case 'm1':
+                correctValue = 'Ensino Médio 1° ano'
+                break;
+            case 'm2':
+                correctValue = 'Ensino Médio 2° ano'
+                break;
+            case 'm3':
+                correctValue = 'Ensino Médio 3° ano'
+                break;
+        }
+
+        return correctValue;
     }
 }

@@ -59,7 +59,8 @@ header {
     width: 100%;
 }
 
-.active {
+.links .active {
+    color: var(--primary--color);
     font-weight: bold;
 }
 
@@ -234,7 +235,7 @@ button[type="submit"]:hover {
 }
 
 .table-container td {
-    padding: 16px 8px;
+    padding: 8px 8px;
 }
 
 .table-container th,
@@ -246,7 +247,8 @@ button[type="submit"]:hover {
     border-bottom: none;
 }
 
-.table-container td a {
+.table-container td a,
+.table-container a {
     text-decoration: none;
     text-transform: uppercase;
     background-color: var(--primary--color);
@@ -257,7 +259,12 @@ button[type="submit"]:hover {
     transition: color;
 }
 
-.table-container td a:hover {
+.table-container a {
+    display: inline-block;
+    margin-bottom: 4px;
+}
+
+.table-container a:hover {
     color: var(--terciary-color);
 }
 

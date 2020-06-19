@@ -6,6 +6,7 @@
 
 {% block content %}
     <div class="card table-container">
+        <a href="/professores/create">Novo</a>
         <table>
             <thead>
                 <tr>
@@ -21,7 +22,7 @@
                         <span style="background-image: url({{teacher.avatar_url}})"></span>
                         {{teacher.name}}
                     </td>
-                    <td>{% for area in teacher.area%}<span>{{area}}</span>{% endfor %}</td>
+                    <td>{% for area in teacher.area %}<span>{{area}}</span>{% endfor %}</td>
                     <td><a href="/professores/{{teacher.id}}">Ver</a></td>
                 </tr>
                 {% endfor %}
