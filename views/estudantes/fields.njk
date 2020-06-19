@@ -1,0 +1,66 @@
+<div class="item">
+    <div>URL do Avatar</div>
+    <input 
+    type="url" 
+    name="avatar_url" 
+    placeholder="http://joao.com.br/imagem"
+    value="{{student.avatar_url}}">
+</div>
+
+<div class="item">
+    <div>Nome Completo</div>
+    <input 
+    type="text" 
+    name="name" 
+    placeholder="Joao da Silva"
+    value="{{student.name}}">
+</div>
+
+<div class="item">
+    <div>Email</div>
+    <input 
+    type="Email" 
+    name="email" 
+    placeholder="student@class.com"
+    value="{{student.email}}">
+</div>
+
+<div class="item">
+    <div>Data de nascimento</div>
+    <input 
+    type="date" 
+    name="birth"
+    value="{{student.birth}}">
+</div>
+
+<div class="item">
+    <div>Ano Escolar</div>
+    <select name="ano">
+        <option value="f6" {% if student.ano == 'f6' %}
+        selected {% endif %}>Ensino Fundamental 6° ano </option>
+        <option value="f7" {% if student.ano == 'f7' %}
+        selected {% endif %}>Ensino Fundamental 7° ano </option>
+        <option value="f8" {% if student.ano == 'f8' %}
+        selected {% endif %}>Ensino Fundamental 8° ano </option>
+        <option value="f9" {% if student.ano == 'f9' %}
+        selected {% endif %}>Ensino Fundamental 9° ano </option>
+        <option value="m1" {% if student.ano == 'm1' %}
+        selected {% endif %}>Ensino Médio 1° ano</option>
+        <option value="m2" {% if student.ano == 'm2' %}
+        selected {% endif %}>Ensino Médio 2° ano</option>
+        <option value="m3" {% if student.ano == 'm3' %}
+        selected {% endif %}>Ensino Médio 3° ano</option>
+    </select>
+</div>
+
+<div class="item">
+    <div>Carga Horária Semanal (horas)</div>
+    <input 
+    type="number"
+    max="20"
+    name="carga" 
+    placeholder="4"
+    value="{{student.carga}}">
+</div>
+
+<button type="submit">Salvar</button>
