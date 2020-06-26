@@ -11,7 +11,7 @@ server.use(express.urlencoded({extended: true}))
 server.use(methodOverride('_method'))
 server.use(routes)
 
-nunjucks.configure('views', {
+nunjucks.configure('src/app/views', {
     express: server,
     autoescape: false,
     noCache: true
