@@ -9,16 +9,16 @@
     <section class="avatar" style="background-image: url({{student.avatar_url}})"></section>
     <section class="details">
 
-        <form id="form-put" method="POST" action="/estudantes?_method=PUT">
+        <form id="form-put" method="POST" action="/students?_method=PUT">
 
             <h3>Editar Estudante</h3>
 
-            {% include 'estudantes/fields.njk' %}
+            {% include 'students/fields.njk' %}
 
             <input type="hidden" name="id" value={{student.id}}>
         </form>
 
-        <form id="form-delete" action="/estudantes?_method=DELETE" method="post">
+        <form id="form-delete" action="/students?_method=DELETE" method="post">
             <input type="hidden" name="id" value={{student.id}}>
             <button type="submit">Deletar</button>
         </form> 

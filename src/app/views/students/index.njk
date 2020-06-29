@@ -6,7 +6,7 @@
 
 {% block content %}
     <div class="card table-container">
-        <a href="/estudantes/create">Novo</a>
+        <a href="/students/create">Novo</a>
         <table>
             <thead>
                 <tr>
@@ -25,7 +25,7 @@
                     </td>
                     <td>{{student.email}}</td>
                     <td>{{student.ano}}</td>
-                    <td><a href="/estudantes/{{student.id}}">Ver</a></td>
+                    <td><a href="/students/{{student.id}}">Ver</a></td>
                 </tr>
                 {% endfor %}
             </tbody>
