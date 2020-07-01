@@ -195,11 +195,6 @@ a.button {
     text-align: center;
 }
 
-button[type="submit"]:hover {
-    border: 1px solid var(--secondary-color);
-    padding: 3px 15px;
-}
-
 /* ---FORM-DELETE--- */
 #form-delete button {
     background-color: lightcoral;
@@ -287,4 +282,31 @@ button[type="submit"]:hover {
 
 .table-container tr td:first-child {
     text-align: left;
+}
+
+.table-container .header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.table-container .header a,
+.table-container .header button {
+    font-size: 16px;
+    font-weight: 400;
+    padding: 8px 16px;
+    text-align: center;
+    text-transform: capitalize;
+    margin: 0;
+}
+
+.table-container .header a {
+    width: 120px;
+}
+
+.table-container .header form {
+    display: grid;
+    grid-template-columns: 1fr 120px;
+    gap: 10px;
 }

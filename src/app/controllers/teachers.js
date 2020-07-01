@@ -3,21 +3,42 @@ const Teacher = require('../models/teacher')
 
 module.exports = {
     index(req, res) {
-        let teacherSubjectsSplited = []
+        const { filter } = req.query
 
-        Teacher.all(function(teachers) {
+        
 
-            for (teacher of teachers) {
-                const tc = {
-                    ...teacher,
-                    subjects_taught: teacher.subjects_taught.split(',')
+        if (filter) {
+            Teacher.findBy(filter, function(teachers) {
+                let teacherSubjectsSplited = []
+
+                for (teacher of teachers) {
+                    const tc = {
+                        ...teacher,
+                        subjects_taught: teacher.subjects_taught.split(',')
+                    }
+
+                    teacherSubjectsSplited.push(tc)
                 }
 
-                teacherSubjectsSplited.push(tc)
-            }
+                res.render('teachers/index', { teachers: teacherSubjectsSplited, filter })
+            })
+        } else {
+            Teacher.all(function(teachers) {
 
-            res.render('teachers/index', { teachers: teacherSubjectsSplited })
-        })
+                let teacherSubjectsSplited = []
+    
+                for (teacher of teachers) {
+                    const tc = {
+                        ...teacher,
+                        subjects_taught: teacher.subjects_taught.split(',')
+                    }
+    
+                    teacherSubjectsSplited.push(tc)
+                }
+    
+                res.render('teachers/index', { teachers: teacherSubjectsSplited })
+            })
+        }
     },
 
     show(req, res) {
