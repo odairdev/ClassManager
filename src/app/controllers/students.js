@@ -4,6 +4,11 @@ const Student  = require('../models/student')
 module.exports = {
     index(req, res) {
         Student.all(function(students) {
+
+            students.forEach(student => {
+                student.grade = grade(student.grade)
+            });
+
             res.render('students/index', { students })
         })
     },
@@ -19,18 +24,23 @@ module.exports = {
         })
     },
 
+    create(req, res) {
+        Student.teacherSelectOptions(function(options) {
+            res.render('students/create', { teacherOptions: options})
+        })
+    },
+
     edit(req, res) {
         Student.find(req.params.id, function(student) {
             if(!student) res.send("Student not found")
 
             student.birth = date(student.birth).iso
-
-            res.render(`students/edit`, { student })
+            
+            Student.teacherSelectOptions(function(options) {
+                res.render(`students/edit`, { student, teacherOptions: options })
+            })
+            
         })
-    },
-
-    create(req, res) {
-        return res.render('students/create')
     },
 
     post(req, res) {
