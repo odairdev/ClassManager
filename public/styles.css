@@ -3,7 +3,7 @@
 :root{
     --primary--color: #4881c2;
     --secondary-color: #f7df1e;
-    --terciary-color: #63f56f;
+    --terciary-color: #51f69e;
 }
 
 * {
@@ -14,7 +14,11 @@
 }
 
 body {
-    background-color: var(--primary--color);
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--terciary-color) 0%, var(--primary--color) 50%, var(--terciary-color) 100%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 header {
@@ -259,7 +263,8 @@ a.button {
     margin-bottom: 4px;
 }
 
-.table-container a:hover {
+.table-container a:hover,
+.table-container button:hover {
     color: var(--terciary-color);
 }
 
@@ -309,4 +314,31 @@ a.button {
     display: grid;
     grid-template-columns: 1fr 120px;
     gap: 10px;
+}
+
+/* ---Pagination--- */
+.table-container {
+    display: grid;
+    grid-template: 64px 1fr 16px / 1fr;
+}
+
+.table-container .header {
+    margin: 0;
+    align-self: start;
+}
+
+.table-container .pagination {
+    margin-top: 16px;
+    align-self: end;
+    justify-self: center;
+}
+
+.pagination a,
+.pagination span {
+    margin-right: 8px;
+}
+
+.pagination a.active {
+    color: var(--terciary-color);
+    font-size: 17px;
 }

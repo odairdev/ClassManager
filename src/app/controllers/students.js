@@ -3,14 +3,31 @@ const Student  = require('../models/student')
 
 module.exports = {
     index(req, res) {
-        Student.all(function(students) {
+        let { filter, page, limit } = req.query
 
-            students.forEach(student => {
-                student.grade = grade(student.grade)
-            });
+        page = page || 1
+        limit = limit || 2
+        const offset = limit * (page - 1)
 
-            res.render('students/index', { students })
-        })
+        const params = {
+            filter,
+            limit,
+            offset,
+            callback(students) {
+                const pagination = {
+                    page,
+                    total: Math.ceil(students[0].total / limit)
+                }
+
+                students.forEach(student => {
+                    student.grade = grade(student.grade)
+                });
+    
+                res.render('students/index', { students, filter, pagination })
+            }
+        }
+
+        Student.paginate(params)
     },
 
     show(req, res) {
